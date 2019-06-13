@@ -4,8 +4,8 @@ Camplog.sync();
 
 module.exports = robot => {
 
-  // "今日のネットキャンプをやりました" か "今日のネットキャンプdone" と言うと登録してくれる
-  robot.hear(/今日のネットキャンプをやりました|今日のネットキャンプdone/, msg => {
+  // "今日のネットキャンプ(をやりました|やりました|done)" と言うと登録してくれる
+  robot.hear(/今日のネットキャンプ(をやりました|やりました|done)/, msg => {
     const user = msg.message.user;
     let username = msg.message.user.profile.display_name;
     if (!username) {
