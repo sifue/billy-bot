@@ -1,0 +1,42 @@
+{
+  "name": "billy-bot",
+  "version": "0.0.0",
+  "private": true,
+  "author": "sifue <yoshimura@soichiro.org>",
+  "description": "Support bot for Billy's net camp.",
+  "scripts": {
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write --single-quote=true",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "hubot": "^3.3.2",
+    "hubot-diagnostics": "^1.0.0",
+    "hubot-google-images": "^0.2.7",
+    "hubot-google-translate": "^0.2.1",
+    "hubot-help": "^1.0.1",
+    "hubot-heroku-keepalive": "^1.0.3",
+    "hubot-maps": "0.0.3",
+    "hubot-pugme": "^0.1.1",
+    "hubot-redis-brain": "^1.0.0",
+    "hubot-rules": "^1.0.0",
+    "hubot-scripts": "^2.17.2",
+    "hubot-shipit": "^0.2.1",
+    "hubot-slack": "^4.4.0",
+    "pg": "7.4.1",
+    "pg-hstore": "2.3.2",
+    "sequelize": "4.33.4"
+  },
+  "engines": {
+    "node": "10.14.2"
+  },
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.2",
+    "prettier": "^1.11.1"
+  }
+}
