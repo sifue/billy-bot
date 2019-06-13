@@ -3,7 +3,6 @@ const Camplog = require('../models/camplog');
 Camplog.sync();
 
 module.exports = robot => {
-
   // "今日のネットキャンプ(をやりました|やりました|done)" と言うと登録してくれる
   robot.hear(/今日のネットキャンプ(をやりました|やりました|done)/, msg => {
     const user = msg.message.user;
@@ -27,7 +26,7 @@ module.exports = robot => {
       Camplog.findAndCountAll({
         where: {
           userId: user.id
-        },
+        }
       }).then(result => {
         if (isCreated) {
           const message = `${username}、よく頑張ったな！ トータル${result.count}日達成だ。`;
@@ -50,7 +49,7 @@ module.exports = robot => {
     Camplog.findAndCountAll({
       where: {
         userId: user.id
-      },
+      }
     }).then(result => {
       const message = `${username}、君はトータル${result.count}日達成だ。`;
       msg.send(message);
@@ -65,7 +64,7 @@ module.exports = robot => {
     }
 
     const messages = [
-      `${username}、習慣が変え、意識を変えるんだ！`,
+      `${username}、習慣を変え、意識を変えるんだ！`,
       `${username}、声をだすのが重要だ！声を出して心のスイッチをいれるんだ！`,
       'この場所へ心が導いてくれた。明日の場所へ心が導いてくれる。',
       '俺をタフな男に変えたのは空手との出会い。肉体だけでなく内面が変わらなければ、本当に強いカラダは手に入らない。',
@@ -73,7 +72,7 @@ module.exports = robot => {
       'トレーニングをして満足感を得る人がいるけど、それは長続きしないよ。大切なのは内面を磨くこと。',
       'ブートキャンプをやり遂げて、自信をつかめば必ず変わる！　さあもっと声を！　モア・パワー！　力はあなたの手の中にある！',
       '捨て身になるんだ。きっとやり遂げられる。それが最初の一歩だ！',
-      '力はあなたの手の中にある。自分がいま持っているものを信じて。I believe!',
+      '力はあなたの手の中にある。自分がいま持っているものを信じて。I believe!'
     ];
     const message = messages[Math.floor(Math.random() * messages.length)];
     msg.send(message);
