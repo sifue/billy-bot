@@ -4,40 +4,43 @@ Camplog.sync();
 
 module.exports = robot => {
   // "今日のネットキャンプ(をやりました|やりました|done)" と言うと登録してくれる
-  robot.hear(/今日のネットキャンプ(をやりました|やりました|done)/, msg => {
-    const user = msg.message.user;
-    let username = msg.message.user.profile.display_name;
-    if (!username) {
-      username = user.name;
-    }
-
-    const today = new Date();
-    Camplog.findCreateFind({
-      where: {
-        userId: user.id,
-        date: today
-      },
-      defaults: {
-        userId: user.id,
-        date: today,
-        userName: username
+  robot.hear(
+    /今日の[ビリーズ]*ネットキャンプ(をやりました|やりました|done|をしました|しました)/,
+    msg => {
+      const user = msg.message.user;
+      let username = msg.message.user.profile.display_name;
+      if (!username) {
+        username = user.name;
       }
-    }).spread((camplog, isCreated) => {
-      Camplog.findAndCountAll({
+
+      const today = new Date();
+      Camplog.findCreateFind({
         where: {
-          userId: user.id
+          userId: user.id,
+          date: today
+        },
+        defaults: {
+          userId: user.id,
+          date: today,
+          userName: username
         }
-      }).then(result => {
-        if (isCreated) {
-          const message = `${username}、よく頑張ったな！ トータル${result.count}日達成だ。`;
-          msg.send(message);
-        } else {
-          const message = `${username}、もう報告済みだ。 現在はトータル${result.count}日達成だ。`;
-          msg.send(message);
-        }
+      }).spread((camplog, isCreated) => {
+        Camplog.findAndCountAll({
+          where: {
+            userId: user.id
+          }
+        }).then(result => {
+          if (isCreated) {
+            const message = `${username}、よく頑張ったな！ トータル${result.count}日達成だ。`;
+            msg.send(message);
+          } else {
+            const message = `${username}、もう報告済みだ。 現在はトータル${result.count}日達成だ。`;
+            msg.send(message);
+          }
+        });
       });
-    });
-  });
+    }
+  );
 
   // "何日達成？" か "何日達成?" と聞くと現在の数値を教えてくれる
   robot.hear(/何日達成[？?]/, msg => {
