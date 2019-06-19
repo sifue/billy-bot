@@ -5,7 +5,7 @@ Camplog.sync();
 module.exports = robot => {
   // "今日のネットキャンプ(をやりました|やりました|done)" と言うと登録してくれる
   robot.hear(
-    /今日(の|)(ビリーズ|)(ネット|ブート|)キャンプ(をやった|やった|をやりました|やりました|done|をしました|しました)/,
+    /今日(の|は|)(ビリーズ|)(ネット|ブート|)キャンプ(完了|を終わった|終わった|を終わりました|終わりました|を終えました|終えました|終わり|をやった|やった|をやりました|やりました|done|をしました|しました)/,
     msg => {
       const user = msg.message.user;
       let username = msg.message.user.profile.display_name;
