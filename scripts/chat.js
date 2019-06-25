@@ -31,10 +31,10 @@ module.exports = robot => {
           }
         }).then(result => {
           if (isCreated) {
-            const message = `${username}、よく頑張ったな！ トータル${result.count}日達成だ。`;
+            const message = `${username} よく頑張ったな！ トータル${result.count}日達成だ。`;
             msg.send(message);
           } else {
-            const message = `${username}、もう報告済みだ。 現在はトータル${result.count}日達成だ。`;
+            const message = `${username} もう報告済みだ。 現在はトータル${result.count}日達成だ。`;
             msg.send(message);
           }
         });
@@ -54,7 +54,7 @@ module.exports = robot => {
         userId: user.id
       }
     }).then(result => {
-      const message = `${username}、君はトータル${result.count}日達成だ。`;
+      const message = `${username} 君はトータル${result.count}日達成だ。`;
       msg.send(message);
     });
   });
