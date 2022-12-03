@@ -493,9 +493,9 @@ debug@^3.1.0:
     ms "^2.1.1"
 
 decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
+  integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
 dedent@^0.7.0:
   version "0.7.0"
@@ -993,10 +993,10 @@ hubot-shipit@^0.2.1:
   resolved "https://registry.yarnpkg.com/hubot-shipit/-/hubot-shipit-0.2.1.tgz#4fbc9e161953bf7901fdc36e2a702c13103f16b2"
   integrity sha1-T7yeFhlTv3kB/cNuKnAsExA/FrI=
 
-hubot-slack@^4.7.1:
-  version "4.7.1"
-  resolved "https://registry.yarnpkg.com/hubot-slack/-/hubot-slack-4.7.1.tgz#76cb6bec0d48d3b6718b8be1735edebc8c420a3b"
-  integrity sha512-ieQdGv0XgdhAWjIvoY3UPi05AKV3d6XZYClX/xWGfGmK5tLFX3ZPLjJyJ6dKIXWXke7/kE47HqSACZskrt0Mcg==
+hubot-slack@^4.4.0:
+  version "4.10.0"
+  resolved "https://registry.yarnpkg.com/hubot-slack/-/hubot-slack-4.10.0.tgz#da5db24782c74d17bc1d9fa60a62d3f9c4f009a9"
+  integrity sha512-xpygVMuepOsSOrvkGukd7HS8cFRkiFAr7ivnF7dqfd3y2tf66eQuj9ouAONxCaTA4dLPOkOjSZJDbYLki9K9eg==
   dependencies:
     "@slack/client" "3.16.1-sec.2"
     bluebird "^3.5.1"
